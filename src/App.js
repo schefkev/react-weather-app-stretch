@@ -5,7 +5,7 @@ import { Button, Card } from 'semantic-ui-react';
 
 export default function App() {
   const weekDay = DateTime.now().weekdayLong;
-  const dateToday = DateTime.now().toFormat('MMMM dd, yyyy');
+  const dateToday = DateTime.now().toFormat('MMMM dd. yyyy');
   const timeNow = DateTime.now().toLocaleString(DateTime.TIME_24_WITH_SECONDS);
   const refreshPage = () => {
     window.location.reload();
@@ -25,7 +25,7 @@ export default function App() {
       });
       /* getting the data from the api */
       const url = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=bf37b75730af7ca28743ab11a205c8ba`,
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_API_KEY}`,
       );
       /* converting the data to json */
       const json = await url.json();
@@ -66,7 +66,7 @@ export default function App() {
           {/* Second Row in the Card */}
           <div className="flex">
             <p className="time">Temperature: {data.main.temp}&deg;C</p>
-            <p className="time">Clouds: {data.clouds.all}</p>
+            <p className="time">Clouds: {data.clouds.all}%</p>
           </div>
           {/* Third Row in the Card */}
           <div className="flex">
