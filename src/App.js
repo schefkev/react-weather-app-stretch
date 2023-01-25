@@ -7,9 +7,9 @@ export default function App() {
   const weekDay = DateTime.now().weekdayLong;
   const dateToday = DateTime.now().toFormat('MMMM dd. yyyy');
   const timeNow = DateTime.now().toLocaleString(DateTime.TIME_24_WITH_SECONDS);
-  const refreshPage = () => {
+  /*  const refreshPage = () => {
     window.location.reload();
-  };
+  }; */
 
   /* Get the current position */
   const [lat, setLat] = useState([]);
@@ -49,7 +49,7 @@ export default function App() {
               color="blue"
               circular
               icon="refresh"
-              onClick={refreshPage}
+              /* onClick={refreshPage} */
             />
           </div>
           {/* First Row in the Card */}
